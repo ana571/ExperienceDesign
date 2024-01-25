@@ -1,6 +1,7 @@
 const workshops = {
     1: ["image1.jpg", "image2.jpg", "image3.jpg"],
     2: ["image4.jpg", "image5.jpg", "image6.jpg"],
+    
     // Add images for other workshops similarly
 };
 
