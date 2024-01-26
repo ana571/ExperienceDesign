@@ -67,14 +67,14 @@ function displayImage() {
 
     // Display navigation arrows
     const arrowLeft = document.createElement("img");
-    arrowLeft.src = "left-arrow.png";
+    arrowLeft.src = "arrow-left.png";
     arrowLeft.alt = "Left Arrow";
     arrowLeft.className = "arrow left";
     arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
 
     const arrowRight = document.createElement("img");
-    arrowRight.src = "right-arrow.png";
+    arrowRight.src = "arrow-right.png";
     arrowRight.alt = "Right Arrow";
     arrowRight.className = "arrow right";
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
