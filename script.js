@@ -59,3 +59,15 @@ function navigateImage(direction) {
 function displayText(text) {
     alert(text); // You can customize this to display the text in a more visually appealing way
 }
+
+const arrowLeft = document.createElement("div");
+arrowLeft.className = "arrow left";
+arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+imageContainer.appendChild(arrowLeft);
+console.log("Arrow Left created");
+
+const arrowRight = document.createElement("div");
+arrowRight.className = "arrow right";
+arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+imageContainer.appendChild(arrowRight);
+console.log("Arrow Right created");
