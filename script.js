@@ -47,7 +47,7 @@ const workshops = {
          "Final image"]
     },
 };
-let currentWorkshop = 0;
+let currentWorkshop = 1;
 let currentImageIndex = 0;
 let isInWorkshop = false;
 
@@ -62,7 +62,7 @@ function showWorkshop(workshopNumber) {
     // Display the image and arrows only if a valid workshop is selected
     if (currentWorkshop in workshops) {
         displayImage();
-        
+
         // Display navigation arrows
         const arrowLeft = document.createElement("div");
         arrowLeft.className = "arrow left";
@@ -80,17 +80,26 @@ function showWorkshop(workshopNumber) {
 
 
 
+
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
-   
+    if (currentWorkshop in workshops) {
+        const workshop = workshops[currentWorkshop];
+        const images = workshop.images;
 
+        // Update the current image
+        const imgElement = document.createElement("img");
+        imgElement.src = images[currentImageIndex];
+        imageContainer.appendChild(imgElement);
+
+        // Display "Display Prompt" button below the image
+        const displayPromptButton = document.createElement("button");
+        displayPromptButton.innerText = "Display Prompt";
+        displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
+        imageContainer.appendChild(displayPromptButton);
+    }
     // Clear existing content
     imageContainer.innerHTML = "";
-
-    if (!(currentWorkshop in workshops)) {
-        return;
-    }
-
 
     const workshop = workshops[currentWorkshop];
     const images = workshop.images;
@@ -117,12 +126,12 @@ function displayImage() {
     imageContainer.appendChild(arrowRight);
 
     // Display the button to show the prompt
-    if (currentWorkshop in workshops) {
+   /* if (currentWorkshop in workshops) {
         const displayPromptBtn = document.createElement("button");
         displayPromptBtn.textContent = "Display Prompt";
         displayPromptBtn.addEventListener("click", displayPrompt);
         imageContainer.appendChild(displayPromptBtn);
-    }
+    }*/
  
     // Display area for the prompt text
     const promptText = document.createElement("div");
