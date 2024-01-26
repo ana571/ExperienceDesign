@@ -40,43 +40,18 @@ nav li {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: red; /* Change this color as needed */
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer;
-}
-
-.arrow::before,
-.arrow::after {
-    content: '';
-    position: absolute;
-    top: 50%;
     width: 0;
     height: 0;
-    border: 10px solid transparent; /* Adjust the size of the arrow */
+    border: 15px solid transparent;
     cursor: pointer;
 }
 
-.left::before {
-    border-right-color: #fff; /* Adjust the color of the arrow */
-    left: 5px; /* Adjust the distance from the left */
+.left {
+    left: 10px;
+    border-right-color: #fff;
 }
 
-.left::after {
-    border-right-color: red; /* Adjust the color of the background */
-    left: 4px; /* Adjust the distance from the left */
-}
-
-.right::before {
-    border-left-color: #fff; /* Adjust the color of the arrow */
-    right: 5px; /* Adjust the distance from the right */
-}
-
-.right::after {
-    border-left-color: red; /* Adjust the color of the background */
-    right: 4px; /* Adjust the distance from the right */
+.right {
+    right: 10px;
+    border-left-color: #fff;
 }
