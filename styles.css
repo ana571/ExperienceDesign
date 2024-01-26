@@ -14,16 +14,16 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* Display the list items horizontally */
 }
 
 nav li {
-    display: inline-block;
     margin-right: 20px;
     cursor: pointer;
 }
 
 #image-container {
-    position: relative; /* Important for absolute positioning of arrows */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,20 +40,18 @@ nav li {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: #333;
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
     cursor: pointer;
 }
 
 .left {
     left: 10px;
+    border-right-color: #fff;
 }
 
 .right {
     right: 10px;
+    border-left-color: #fff;
 }
