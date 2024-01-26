@@ -61,26 +61,33 @@ function displayImage() {
     const workshop = workshops[currentWorkshop];
     const images = workshop.images;
 
-    // Update the current image
-    const imgElement = document.getElementById("current-image");
+    // Clear existing content
+    imageContainer.innerHTML = "";
+
+    // Display the current image
+    const imgElement = document.createElement("img");
+    imgElement.id = "current-image";
     imgElement.src = images[currentImageIndex];
-    imgElement.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
     imageContainer.appendChild(imgElement);
 
+    // Attach click event listener only once
+    if (!imgElement.hasAttribute("data-clicked")) {
+        imgElement.setAttribute("data-clicked", "true");
+        imgElement.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
+    }
 
     // Display navigation arrows
     const arrowLeft = document.createElement("div");
     arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
     arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
 
     const arrowRight = document.createElement("div");
     arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
 }
+
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop].images;
