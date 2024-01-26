@@ -57,3 +57,7 @@ function navigateImage(direction) {
 function displayText(text) {
     alert(text); // You can customize this to display the text in a more visually appealing way
 }
+
+function redirectToGallery(workshopNumber) {
+    window.location.href = `gallery.html?workshop=${workshopNumber}`;
+}
