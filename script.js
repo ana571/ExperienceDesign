@@ -101,12 +101,10 @@ function displayImage() {
     imageContainer.appendChild(arrowRight);
 
     // Display "Display Prompt" button below the image only if a valid workshop is selected
-    if (currentWorkshop in workshops) {
-        const displayPromptButton = document.createElement("button");
-        displayPromptButton.innerText = "Display Prompt";
-        displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
-        imageContainer.appendChild(displayPromptButton);
-    }
+    const displayPromptButton = document.createElement("button");
+    displayPromptButton.innerText = "Display Prompt";        
+    displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));    
+    imageContainer.appendChild(displayPromptButton);
 }
 
 
