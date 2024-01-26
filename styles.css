@@ -50,11 +50,33 @@ nav li {
     cursor: pointer;
 }
 
-
-.left {
-    left: 10px;
+.arrow::before,
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent; /* Adjust the size of the arrow */
+    cursor: pointer;
 }
 
-.right {
-    right: 10px;
+.left::before {
+    border-right-color: #fff; /* Adjust the color of the arrow */
+    left: 5px; /* Adjust the distance from the left */
+}
+
+.left::after {
+    border-right-color: red; /* Adjust the color of the background */
+    left: 4px; /* Adjust the distance from the left */
+}
+
+.right::before {
+    border-left-color: #fff; /* Adjust the color of the arrow */
+    right: 5px; /* Adjust the distance from the right */
+}
+
+.right::after {
+    border-left-color: red; /* Adjust the color of the background */
+    right: 4px; /* Adjust the distance from the right */
 }
