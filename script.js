@@ -50,31 +50,24 @@ const workshops = {
 let currentWorkshop = 1;
 let currentImageIndex = 0;
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Initial display when the page is loaded
+    showWorkshop(currentWorkshop);
+});
+
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
     currentImageIndex = 0;
 
-    // Clear existing content
-    const imageContainer = document.getElementById("image-container");
-    imageContainer.innerHTML = "";
-
     // Display the image and arrows
     displayImage();
 
-    // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-    imageContainer.appendChild(arrowLeft);
-
-    const arrowRight = document.createElement("div");
-    arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
-    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
-    imageContainer.appendChild(arrowRight);
+    // Display "Display Prompt" button below the image
+    const displayPromptButton = document.createElement("button");
+    displayPromptButton.innerText = "Display Prompt";
+    displayPromptButton.addEventListener("click", displayPrompt);
+    document.getElementById("image-container").appendChild(displayPromptButton);
 }
-
 
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
@@ -82,41 +75,37 @@ function displayImage() {
     const images = workshop.images;
 
     // Update the current image
-    const imgElement = document.createElement("img");
+    const imgElement = document.getElementById("current-image");
     imgElement.src = images[currentImageIndex];
-    imageContainer.appendChild(imgElement);
 
     // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+    const arrowLeft = createArrow("left", -1);
+    const arrowRight = createArrow("right", 1);
+
+    // Clear existing content
+    imageContainer.innerHTML = "";
+
+    // Append elements to the container
+    imageContainer.appendChild(imgElement);
     imageContainer.appendChild(arrowLeft);
-
-    const arrowRight = document.createElement("div");
-    arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
-    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
-
-    // Display "Display Prompt" button below the image
-    const displayPromptButton = document.createElement("button");
-    displayPromptButton.innerText = "Display Prompt";
-    displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
-    imageContainer.appendChild(displayPromptButton);
 }
 
-
-
+function createArrow(direction, value) {
+    const arrow = document.createElement("div");
+    arrow.className = `arrow ${direction}`;
+    arrow.innerHTML = `<img src='${direction}_arrow.png' alt='${direction.charAt(0).toUpperCase() + direction.slice(1)} Arrow'>`;
+    arrow.addEventListener("click", () => navigateImage(value));
+    return arrow;
+}
 
 function displayPrompt() {
     const promptText = document.getElementById("prompt-text");
     const workshop = workshops[currentWorkshop];
-    
+
     // Display the prompt text
     promptText.textContent = workshop.texts[currentImageIndex];
 }
-
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop].images;
