@@ -23,6 +23,7 @@ nav li {
 }
 
 #image-container {
+    position: relative; /* Important for absolute positioning of arrows */
     display: flex;
     justify-content: center;
     align-items: center;
