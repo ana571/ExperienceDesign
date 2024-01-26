@@ -44,9 +44,8 @@ nav li {
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
+    width: 0;
+    height: 0;
     cursor: pointer;
 }
 
@@ -54,8 +53,7 @@ nav li {
 .right::before {
     content: '';
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: -15px;
     width: 0;
     height: 0;
     border: 15px solid transparent;
@@ -63,11 +61,11 @@ nav li {
 }
 
 .left::before {
-    left: -30px;
-    border-right-color: #333;
+    left: 0;
+    border-right-color: #000; /* Black color */
 }
 
 .right::before {
-    right: -30px;
-    border-left-color: #333;
+    right: 0;
+    border-left-color: #000; /* Black color */
 }
