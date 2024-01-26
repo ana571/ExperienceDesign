@@ -42,31 +42,19 @@ nav li {
 }
 
 .arrow {
-    position: absolute;
-    top: 50%;
-    width: 1;
-    height: 1;
-    cursor: pointer;
-}
-
-.left::before,
-.right::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border: 15px solid transparent;
-    cursor: pointer;
-}
-
-.left::before {
-    left: 0;
-    border-right-color: #000; /* Black color */
-}
-
-.right::before {
-    right: 0;
-    border-left-color: #000; /* Black color */
-}
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
