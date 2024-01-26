@@ -1,4 +1,4 @@
-console.log("Script loaded")
+console.log("Script loaded");
 
 const workshops = {
     1: ["portfolio/W1/Erasmus.png", "portfolio/W1/erasmussad.png", "portfolio/W1/luggage.png", "portfolio/W1/train.png"],
