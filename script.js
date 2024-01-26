@@ -59,5 +59,9 @@ function displayText(text) {
 }
 
 function redirectToGallery(workshopNumber) {
-    window.location.href = `gallery.html?workshop=${workshopNumber}`;
+    if (workshopNumber) {
+        window.location.href = `gallery.html?workshop=${workshopNumber}`;
+    } else {
+        window.location.href = "gallery.html";
+    }
 }
