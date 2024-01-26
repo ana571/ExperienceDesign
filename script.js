@@ -49,7 +49,6 @@ const workshops = {
 };
 let currentWorkshop = 1;
 let currentImageIndex = 0;
-let isInWorkshop = false;
 
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
@@ -108,15 +107,6 @@ function displayImage() {
 }
 
 
-
-
-function displayPrompt() {
-    const promptText = document.getElementById("prompt-text");
-    const workshop = workshops[currentWorkshop];
-    
-    // Display the prompt text
-    promptText.textContent = workshop.texts[currentImageIndex];
-}
 
 
 function displayPrompt() {
