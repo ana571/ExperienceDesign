@@ -85,6 +85,11 @@ function displayImage() {
     // Clear existing content
     imageContainer.innerHTML = "";
 
+    if (!(currentWorkshop in workshops)) {
+        return;
+    }
+
+
     const workshop = workshops[currentWorkshop];
     const images = workshop.images;
     
