@@ -107,7 +107,7 @@ function displayImage() {
     imageContainer.appendChild(arrowRight);
 
     // Display the button to show the prompt
-    if (isInWorkshop) {
+    if (currentWorkshop in workshops) {
         const displayPromptBtn = document.createElement("button");
         displayPromptBtn.textContent = "Display Prompt";
         displayPromptBtn.addEventListener("click", displayPrompt);
