@@ -66,17 +66,15 @@ function displayImage() {
     imgElement.src = images[currentImageIndex];
 
     // Display navigation arrows
-    const arrowLeft = document.createElement("img");
-    arrowLeft.src = "arrow-left.png";
-    arrowLeft.alt = "Left Arrow";
+    const arrowLeft = document.createElement("div");
     arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
     arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
 
-    const arrowRight = document.createElement("img");
-    arrowRight.src = "arrow-right.png";
-    arrowRight.alt = "Right Arrow";
+    const arrowRight = document.createElement("div");
     arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
 }
