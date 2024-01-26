@@ -1,5 +1,3 @@
-console.log("Script loaded");
-
 const workshops = {
     1: ["portfolio/W1/Erasmus.png", "portfolio/W1/erasmussad.png", "portfolio/W1/luggage.png", "portfolio/W1/train.png"],
     2: ["portfolio/W2/j1.png", "portfolio/W2/j2.png", "portfolio/W2/j3.png", "portfolio/W2/j4.png", "portfolio/W2/j5.png", "portfolio/W2/j6final.png", "portfolio/W2/shop.png"],
@@ -33,17 +31,14 @@ function displayImage() {
     // Display navigation arrows
     const arrowLeft = document.createElement("div");
     arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "&#9664;"; // Unicode for left arrow
     arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
 
     const arrowRight = document.createElement("div");
     arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "&#9654;"; // Unicode for right arrow
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
 }
-
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop];
@@ -62,15 +57,3 @@ function navigateImage(direction) {
 function displayText(text) {
     alert(text); // You can customize this to display the text in a more visually appealing way
 }
-
-const arrowLeft = document.createElement("div");
-arrowLeft.className = "arrow left";
-arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-imageContainer.appendChild(arrowLeft);
-console.log("Arrow Left created");
-
-const arrowRight = document.createElement("div");
-arrowRight.className = "arrow right";
-arrowRight.addEventListener("click", navigateImage.bind(null, 1));
-imageContainer.appendChild(arrowRight);
-console.log("Arrow Right created");
