@@ -11,6 +11,22 @@ header {
     padding: 20px;
 }
 
+#workshop-selection {
+    text-align: center;
+}
+
+#workshop-selection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display the list items horizontally */
+}
+
+#workshop-selection li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 #image-container {
     display: flex;
     justify-content: center;
