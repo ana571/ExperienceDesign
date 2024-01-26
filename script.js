@@ -80,11 +80,14 @@ function showWorkshop(workshopNumber) {
 
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
-    const workshop = workshops[currentWorkshop];
-    const images = workshop.images;
+   
 
     // Clear existing content
     imageContainer.innerHTML = "";
+
+    const workshop = workshops[currentWorkshop];
+    const images = workshop.images;
+    
 
     // Display navigation arrows
     const arrowLeft = document.createElement("div");
