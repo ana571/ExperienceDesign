@@ -1,13 +1,13 @@
 body {
-    font-family: IBM Plex Mono;
+    font-family: 'IBM Plex Mono', monospace; /* Change the font family */
     margin: 0;
     padding: 0;
-    color: black;
+    color: #333; /* Change the text color */
 }
 
 header {
     background-color: #bfdfea;
-    color: #fff;
+    color: #333;
     text-align: center; /* Center the text in the header */
     padding: 20px; /* Increase padding for better visibility */
 }
@@ -62,8 +62,18 @@ nav li {
 .right {
     right: 10px;
 }
-/* Add styles for the "Display Prompt" button */
 button {
-    margin-top: 10px; /* Adjust the margin to move it down */
-    padding: 10px; /* Add padding for better visibility */
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'IBM Plex Mono', monospace; /* Specify the desired font family */
+    color: #333; /* Change the text color */
+    background-color: #bfdfea; /* Change the background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+button:hover {
+    background-color: #bfdfea; /* Change the background color on hover */
 }
