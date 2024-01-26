@@ -64,28 +64,44 @@ function displayImage() {
     // Clear existing content
     imageContainer.innerHTML = "";
 
+    // Display navigation arrows
+    const arrowLeft = document.createElement("div");
+    arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
+    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+    imageContainer.appendChild(arrowLeft);
+
     // Display the current image
     const imgElement = document.createElement("img");
     imgElement.id = "current-image";
     imgElement.src = images[currentImageIndex];
     imageContainer.appendChild(imgElement);
 
-    // Attach click event listener only once
-    if (!imgElement.hasAttribute("data-clicked")) {
-        imgElement.setAttribute("data-clicked", "true");
-        imgElement.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
-    }
-
     // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-    imageContainer.appendChild(arrowLeft);
-
     const arrowRight = document.createElement("div");
     arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
+
+    // Display the button to show the prompt
+    const displayPromptBtn = document.createElement("button");
+    displayPromptBtn.textContent = "Display Prompt";
+    displayPromptBtn.addEventListener("click", displayPrompt);
+    imageContainer.appendChild(displayPromptBtn);
+
+    // Display area for the prompt text
+    const promptText = document.createElement("div");
+    promptText.id = "prompt-text";
+    imageContainer.appendChild(promptText);
+}
+
+function displayPrompt() {
+    const promptText = document.getElementById("prompt-text");
+    const workshop = workshops[currentWorkshop];
+    
+    // Display the prompt text
+    promptText.textContent = workshop.texts[currentImageIndex];
 }
 
 
