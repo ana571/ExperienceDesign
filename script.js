@@ -6,7 +6,6 @@ const workshops = {
     5: ["portfolio/W5/karenine.png", "portfolio/W5/bench.png", "portfolio/W5/pho.png", "portfolio/W5/restbench.png"],
     6: ["portfolio/W6/galicienne.png", "portfolio/W6/chat.png", "portfolio/W6/collage.png", "portfolio/W6/galicienne.png", "portfolio/W6/inspo.png", "portfolio/W6/image.png"]
 };
-"portfolio/W6/galicienne.png"
 
 function showWorkshop(workshopNumber) {
     const imageContainer = document.getElementById("image-container");
