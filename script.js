@@ -58,10 +58,7 @@ function displayText(text) {
     alert(text); // You can customize this to display the text in a more visually appealing way
 }
 
-function redirectToGallery(workshopNumber) {
-    if (workshopNumber) {
-        window.location.href = `gallery.html?workshop=${workshopNumber}`;
-    } else {
-        window.location.href = "gallery.html";
-    }
+
+function redirectToGallery() {
+    window.location.href = "gallery.html";
 }
