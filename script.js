@@ -33,14 +33,17 @@ function displayImage() {
     // Display navigation arrows
     const arrowLeft = document.createElement("div");
     arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "&#9664;"; // Unicode for left arrow
     arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
 
     const arrowRight = document.createElement("div");
     arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "&#9654;"; // Unicode for right arrow
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
 }
+
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop];
