@@ -42,13 +42,14 @@ nav li {
     transform: translateY(-50%);
     width: 30px;
     height: 30px;
-    background-color: #333;
+    background-color: red; /* Change this color as needed */
     color: #fff;
     font-size: 20px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
 }
+
 
 .left {
     left: 10px;
