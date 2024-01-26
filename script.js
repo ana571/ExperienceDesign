@@ -79,10 +79,8 @@ function displayImage() {
     imageContainer.appendChild(arrowRight);
 }
 
-
-
 function navigateImage(direction) {
-    const images = workshops[currentWorkshop];
+    const images = workshops[currentWorkshop].images;
     currentImageIndex += direction;
 
     // Wrap around if going beyond the boundaries
