@@ -50,62 +50,80 @@ const workshops = {
 let currentWorkshop = 1;
 let currentImageIndex = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Initial display when the page is loaded
-    showWorkshop(currentWorkshop);
-});
-
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
     currentImageIndex = 0;
 
+    // Clear existing content
+    const imageContainer = document.getElementById("image-container");
+    imageContainer.innerHTML = "";
+
     // Display the image and arrows
     displayImage();
 
-    // Display "Display Prompt" button below the image
-    const displayPromptButton = document.createElement("button");
-    displayPromptButton.innerText = "Display Prompt";
-    displayPromptButton.addEventListener("click", displayPrompt);
-    document.getElementById("image-container").appendChild(displayPromptButton);
+    // Display navigation arrows
+    const arrowLeft = document.createElement("div");
+    arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
+    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+    imageContainer.appendChild(arrowLeft);
+
+    const arrowRight = document.createElement("div");
+    arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
+    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+    imageContainer.appendChild(arrowRight);
 }
+
 
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
     const workshop = workshops[currentWorkshop];
     const images = workshop.images;
 
-    // Update the current image
-    const imgElement = document.getElementById("current-image");
-    imgElement.src = images[currentImageIndex];
-
-    // Display navigation arrows
-    const arrowLeft = createArrow("left", -1);
-    const arrowRight = createArrow("right", 1);
-
     // Clear existing content
     imageContainer.innerHTML = "";
 
-    // Append elements to the container
-    imageContainer.appendChild(imgElement);
+    // Display navigation arrows
+    const arrowLeft = document.createElement("div");
+    arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
+    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
     imageContainer.appendChild(arrowLeft);
-    imageContainer.appendChild(arrowRight);
-}
 
-function createArrow(direction, value) {
-    const arrow = document.createElement("div");
-    arrow.className = `arrow ${direction}`;
-    arrow.innerHTML = `<img src='${direction}_arrow.png' alt='${direction.charAt(0).toUpperCase() + direction.slice(1)} Arrow'>`;
-    arrow.addEventListener("click", () => navigateImage(value));
-    return arrow;
+    // Display the current image
+    const imgElement = document.createElement("img");
+    imgElement.id = "current-image";
+    imgElement.src = images[currentImageIndex];
+    imageContainer.appendChild(imgElement);
+
+    // Display navigation arrows
+    const arrowRight = document.createElement("div");
+    arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
+    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+    imageContainer.appendChild(arrowRight);
+
+    // Display the button to show the prompt
+    const displayPromptBtn = document.createElement("button");
+    displayPromptBtn.textContent = "Display Prompt";
+    displayPromptBtn.addEventListener("click", displayPrompt);
+    imageContainer.appendChild(displayPromptBtn);
+
+    // Display area for the prompt text
+    const promptText = document.createElement("div");
+    promptText.id = "prompt-text";
+    imageContainer.appendChild(promptText);
 }
 
 function displayPrompt() {
     const promptText = document.getElementById("prompt-text");
     const workshop = workshops[currentWorkshop];
-
+    
     // Display the prompt text
     promptText.textContent = workshop.texts[currentImageIndex];
 }
+
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop].images;
