@@ -46,36 +46,24 @@ nav li {
     transform: translateY(-50%);
     width: 0;
     height: 0;
-    border: 10px solid transparent;
     cursor: pointer;
 }
 
-.left {
-    left: 10px;
-    border-right-color: #fff;
-}
-
-.left::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    border-width: 10px 0 10px 10px;
-    border-style: solid;
-    border-color: transparent transparent transparent #fff;
-}
-
-.right {
-    right: 10px;
-    border-left-color: #fff;
-}
-
+.left::before,
 .right::before {
     content: '';
     position: absolute;
     top: -10px;
+    border: 10px solid transparent;
+    cursor: pointer;
+}
+
+.left::before {
+    left: -10px;
+    border-right-color: #fff;
+}
+
+.right::before {
     right: -10px;
-    border-width: 10px 10px 10px 0;
-    border-style: solid;
-    border-color: transparent #fff transparent transparent;
+    border-left-color: #fff;
 }
