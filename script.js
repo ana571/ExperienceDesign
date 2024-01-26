@@ -64,6 +64,9 @@ function displayImage() {
     // Update the current image
     const imgElement = document.getElementById("current-image");
     imgElement.src = images[currentImageIndex];
+    imgElement.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
+    imageContainer.appendChild(imgElement);
+
 
     // Display navigation arrows
     const arrowLeft = document.createElement("div");
