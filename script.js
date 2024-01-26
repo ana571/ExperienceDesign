@@ -47,7 +47,7 @@ const workshops = {
          "Final image"]
     },
 };
-let currentWorkshop = 1;
+let currentWorkshop = 0;
 let currentImageIndex = 0;
 let isInWorkshop = false;
 
