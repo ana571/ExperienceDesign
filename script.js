@@ -104,7 +104,11 @@ function displayImage() {
     displayPromptButton.innerText = "Display Prompt";
     displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
     imageContainer.appendChild(displayPromptButton);
+
+    // Set display style to "block"
+    displayPromptButton.style.display = "block";
 }
+
 
 
 function displayPrompt() {
