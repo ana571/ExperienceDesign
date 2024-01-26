@@ -54,28 +54,30 @@ let isInWorkshop = false;
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
     currentImageIndex = 0;
-    isInWorkshop = true;
 
     // Clear existing content
     const imageContainer = document.getElementById("image-container");
     imageContainer.innerHTML = "";
 
-    // Display the image and arrows
-    displayImage();
+    // Display the image and arrows only if a valid workshop is selected
+    if (currentWorkshop in workshops) {
+        displayImage();
+        
+        // Display navigation arrows
+        const arrowLeft = document.createElement("div");
+        arrowLeft.className = "arrow left";
+        arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
+        arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+        imageContainer.appendChild(arrowLeft);
 
-    // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-    imageContainer.appendChild(arrowLeft);
-
-    const arrowRight = document.createElement("div");
-    arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
-    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
-    imageContainer.appendChild(arrowRight);
+        const arrowRight = document.createElement("div");
+        arrowRight.className = "arrow right";
+        arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
+        arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+        imageContainer.appendChild(arrowRight);
+    }
 }
+
 
 
 function displayImage() {
