@@ -11,12 +11,27 @@ header {
     padding: 20px;
 }
 
+h1, h2 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 #image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
-    position: relative;
 }
 
 #image-container img {
@@ -28,19 +43,39 @@ header {
 .arrow {
     position: absolute;
     top: 50%;
-    width: 20px;
-    height: 20px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
     cursor: pointer;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .left {
     left: 10px;
+    border-right-color: #fff;
+}
+
+.left::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
 }
 
 .right {
     right: 10px;
+    border-left-color: #fff;
+}
+
+.right::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
 }
