@@ -49,10 +49,12 @@ const workshops = {
 };
 let currentWorkshop = 1;
 let currentImageIndex = 0;
+let isInWorkshop = false;
 
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
     currentImageIndex = 0;
+    isInWorkshop = true;
 
     // Clear existing content
     const imageContainer = document.getElementById("image-container");
@@ -105,11 +107,13 @@ function displayImage() {
     imageContainer.appendChild(arrowRight);
 
     // Display the button to show the prompt
-    const displayPromptBtn = document.createElement("button");
-    displayPromptBtn.textContent = "Display Prompt";
-    displayPromptBtn.addEventListener("click", displayPrompt);
-    imageContainer.appendChild(displayPromptBtn);
-
+    if (isInWorkshop) {
+        const displayPromptBtn = document.createElement("button");
+        displayPromptBtn.textContent = "Display Prompt";
+        displayPromptBtn.addEventListener("click", displayPrompt);
+        imageContainer.appendChild(displayPromptBtn);
+    }
+ 
     // Display area for the prompt text
     const promptText = document.createElement("div");
     promptText.id = "prompt-text";
