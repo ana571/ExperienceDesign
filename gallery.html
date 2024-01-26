@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Experienc Design Webportfolio</title>
+    <title>Workshop Image Gallery</title>
 </head>
 <body>
     <header>
@@ -21,7 +21,9 @@
     </header>
 
     <div id="image-container">
-        <!-- Images will be loaded here -->
+        <div id="arrow-left" class="arrow left" onclick="navigateImage(-1)"></div>
+        <img id="current-image" src="" alt="Workshop Image">
+        <div id="arrow-right" class="arrow right" onclick="navigateImage(1)"></div>
     </div>
 
     <script src="script.js"></script>

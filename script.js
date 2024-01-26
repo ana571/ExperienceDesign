@@ -29,16 +29,13 @@ function displayImage() {
     imageContainer.appendChild(imgElement);
 
     // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-    imageContainer.appendChild(arrowLeft);
-
-    const arrowRight = document.createElement("div");
-    arrowRight.className = "arrow right";
-    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
-    imageContainer.appendChild(arrowRight);
+    const arrowLeft = document.getElementById("arrow-left");
+    arrowLeft.addEventListener("click", () => navigateImage(-1));
+    
+    const arrowRight = document.getElementById("arrow-right");
+    arrowRight.addEventListener("click", () => navigateImage(1));
 }
+
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop];

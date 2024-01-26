@@ -55,3 +55,27 @@ nav li {
     right: 10px;
     border-left-color: #fff;
 }
+/* Your existing CSS code... */
+
+#arrow-left,
+#arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: red; /* Change this color as needed */
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+#arrow-left {
+    left: 10px;
+}
+
+#arrow-right {
+    right: 10px;
+}
