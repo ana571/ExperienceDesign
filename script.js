@@ -53,8 +53,28 @@ let currentImageIndex = 0;
 function showWorkshop(workshopNumber) {
     currentWorkshop = workshopNumber;
     currentImageIndex = 0;
+
+    // Clear existing content
+    const imageContainer = document.getElementById("image-container");
+    imageContainer.innerHTML = "";
+
+    // Display the image and arrows
     displayImage();
+
+    // Display navigation arrows
+    const arrowLeft = document.createElement("div");
+    arrowLeft.className = "arrow left";
+    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
+    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+    imageContainer.appendChild(arrowLeft);
+
+    const arrowRight = document.createElement("div");
+    arrowRight.className = "arrow right";
+    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
+    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+    imageContainer.appendChild(arrowRight);
 }
+
 
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
