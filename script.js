@@ -75,47 +75,47 @@ function showWorkshop(workshopNumber) {
     imageContainer.appendChild(arrowRight);
 }
 
-
 function displayImage() {
     const imageContainer = document.getElementById("image-container");
     const workshop = workshops[currentWorkshop];
     const images = workshop.images;
 
     // Update the current image
-    const imgElement = document.createElement("img");
+    const imgElement = document.getElementById("current-image");
     imgElement.src = images[currentImageIndex];
-    imageContainer.appendChild(imgElement);
 
     // Display navigation arrows
-    const arrowLeft = document.createElement("div");
-    arrowLeft.className = "arrow left";
-    arrowLeft.innerHTML = "<img src='left_arrow.png' alt='Left Arrow'>";
-    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
-    imageContainer.appendChild(arrowLeft);
+    const arrowLeft = createArrow("left", -1);
+    const arrowRight = createArrow("right", 1);
 
-    const arrowRight = document.createElement("div");
-    arrowRight.className = "arrow right";
-    arrowRight.innerHTML = "<img src='right_arrow.png' alt='Right Arrow'>";
-    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+    // Clear existing content
+    imageContainer.innerHTML = "";
+
+    // Append elements to the container
+    imageContainer.appendChild(imgElement);
+    imageContainer.appendChild(arrowLeft);
     imageContainer.appendChild(arrowRight);
 
     // Display "Display Prompt" button below the image
     const displayPromptButton = document.createElement("button");
     displayPromptButton.innerText = "Display Prompt";
-    displayPromptButton.addEventListener("click", () => displayText(workshop.texts[currentImageIndex]));
+    displayPromptButton.addEventListener("click", displayPrompt);
     imageContainer.appendChild(displayPromptButton);
+
+    // Display div for prompt text
+    const promptText = document.createElement("div");
+    promptText.id = "prompt-text"; // Set the same ID used in the displayPrompt function
+    imageContainer.appendChild(promptText);
 }
-
-
-
 
 function displayPrompt() {
     const promptText = document.getElementById("prompt-text");
     const workshop = workshops[currentWorkshop];
-    
+
     // Display the prompt text
     promptText.textContent = workshop.texts[currentImageIndex];
 }
+
 
 
 function navigateImage(direction) {
