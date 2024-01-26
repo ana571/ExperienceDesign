@@ -25,6 +25,7 @@ function displayImage() {
     // Display the current image
     const imgElement = document.createElement("img");
     imgElement.src = images[currentImageIndex];
+    imgElement.alt = "Workshop Image";
     imgElement.addEventListener("click", () => displayText("Some workshop text"));
     imageContainer.appendChild(imgElement);
 
@@ -39,6 +40,7 @@ function displayImage() {
     arrowRight.addEventListener("click", navigateImage.bind(null, 1));
     imageContainer.appendChild(arrowRight);
 }
+
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop];
