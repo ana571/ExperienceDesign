@@ -42,7 +42,7 @@ nav li {
     transform: translateY(-50%);
     width: 30px;
     height: 30px;
-    background-color: red; /* Change this color as needed */
+    background-color: blue; /* Change this color as needed */
     color: #fff;
     font-size: 20px;
     text-align: center;
@@ -67,7 +67,7 @@ nav li {
 }
 
 .left::after {
-    border-right-color: red; /* Adjust the color of the background */
+    border-right-color: blue; /* Adjust the color of the background */
     left: 4px; /* Adjust the distance from the left */
 }
 
@@ -77,6 +77,6 @@ nav li {
 }
 
 .right::after {
-    border-left-color: red; /* Adjust the color of the background */
+    border-left-color: blue; /* Adjust the color of the background */
     right: 4px; /* Adjust the distance from the right */
 }
