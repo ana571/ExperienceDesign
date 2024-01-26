@@ -1,9 +1,12 @@
 const workshops = {
-    1: ["image1.jpg", "image2.jpg", "image3.jpg"],
-    2: ["image4.jpg", "image5.jpg", "image6.jpg"],
-    
-    // Add images for other workshops similarly
+    1: ["portfolio/W1/Erasmus.png", "portfolio/W1/erasmussad.png", "portfolio/W1/luggage.png", "portfolio/W1/train.png"],
+    2: ["portfolio/W2/j1.png", "portfolio/W2/j2.png", "portfolio/W2/j3.png", "portfolio/W2/j4.png", "portfolio/W2/j5.png", "portfolio/W2/j6final.png", "portfolio/W2/shop.png"],
+    3: ["image4.jpg", "image5.jpg", "image6.jpg"],
+    4: ["image4.jpg", "image5.jpg", "image6.jpg"],
+    5: ["image4.jpg", "image5.jpg", "image6.jpg"],
+    6: ["image4.jpg", "image5.jpg", "image6.jpg"]
 };
+"portfolio/W2/j1.png"
 
 function showWorkshop(workshopNumber) {
     const imageContainer = document.getElementById("image-container");
