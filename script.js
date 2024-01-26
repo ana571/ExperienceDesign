@@ -26,7 +26,7 @@ const workshops = {
     },
     4: {
         images: ["portfolio/W4/patent.png", "portfolio/W4/active.png", "portfolio/W4/acti.png", "portfolio/W4/inroom.png"],
-        texts: ["Patent the clothes are inspired of", 
+        texts: ["Patent the clothes are inspired by", 
          "stylish sport outfit with mesh", 
          "a patch of textile on the shoulder of a person in a mesh that is made of fiber and electrical material. In the style of woven homemade wool. The rest of the closing is normal",
          "a photograph of a female athlete resting in a cozy room wearing elbow mesh"]
