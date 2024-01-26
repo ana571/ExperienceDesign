@@ -23,8 +23,11 @@
     </header>
 
     <div id="image-container">
-        <!-- Images will be loaded here -->
+        <img class="arrow left" src="arrow-left.png" alt="Left Arrow" onclick="navigateImage(-1)">
+        <img id="current-image" src="your_image.jpg" alt="Your Image">
+        <img class="arrow right" src="arrow-right.png" alt="Right Arrow" onclick="navigateImage(1)">
     </div>
+    
 
     <script src="script.js"></script>
 </body>
