@@ -29,13 +29,16 @@ function displayImage() {
     imageContainer.appendChild(imgElement);
 
     // Display navigation arrows
-    const arrowLeft = document.getElementById("arrow-left");
-    arrowLeft.addEventListener("click", () => navigateImage(-1));
-    
-    const arrowRight = document.getElementById("arrow-right");
-    arrowRight.addEventListener("click", () => navigateImage(1));
-}
+    const arrowLeft = document.createElement("div");
+    arrowLeft.className = "arrow left";
+    arrowLeft.addEventListener("click", navigateImage.bind(null, -1));
+    imageContainer.appendChild(arrowLeft);
 
+    const arrowRight = document.createElement("div");
+    arrowRight.className = "arrow right";
+    arrowRight.addEventListener("click", navigateImage.bind(null, 1));
+    imageContainer.appendChild(arrowRight);
+}
 
 function navigateImage(direction) {
     const images = workshops[currentWorkshop];
@@ -53,9 +56,4 @@ function navigateImage(direction) {
 
 function displayText(text) {
     alert(text); // You can customize this to display the text in a more visually appealing way
-}
-
-
-function redirectToGallery() {
-    window.location.href = "gallery.html";
 }
